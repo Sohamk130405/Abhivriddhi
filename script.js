@@ -1,20 +1,22 @@
-// Select all video containers and videos
-const videoContainers = document.querySelectorAll(".event-video");
+function videoAnimations() {
+  // Select all video containers and videos
+  const videoContainers = document.querySelectorAll(".event-video");
 
-// Loop through each video container and attach event listeners
-videoContainers.forEach((container) => {
-  const videoElement = container.querySelector("video"); // Select the video element within each container
+  // Loop through each video container and attach event listeners
+  videoContainers.forEach((container) => {
+    const videoElement = container.querySelector("video"); // Select the video element within each container
 
-  container.addEventListener("mouseover", () => {
-    videoElement.muted = false; // Enable sound on hover
-    videoElement.play(); // Play video on hover
+    container.addEventListener("mouseover", () => {
+      videoElement.muted = false; // Enable sound on hover
+      videoElement.play(); // Play video on hover
+    });
+
+    container.addEventListener("mouseout", () => {
+      videoElement.pause(); // Pause video on mouse out
+      videoElement.currentTime = 0; // Optionally reset to the beginning
+    });
   });
-
-  container.addEventListener("mouseout", () => {
-    videoElement.pause(); // Pause video on mouse out
-    videoElement.currentTime = 0; // Optionally reset to the beginning
-  });
-});
+}
 
 function toggleFAQ(index) {
   const faqs = document.querySelectorAll(".faq-item");
@@ -85,3 +87,20 @@ function toggleFAQ(index) {
     }
   });
 }
+
+function navAnimation() {
+  gsap.to("nav", {
+    duration: 1, // Animation duration
+    background: "#000",
+    scrollTrigger: {
+      trigger: "body", // The element that triggers the animation
+      start: "top top", // When the top of the nav hits the top of the viewport
+      end: "bottom top", // When the bottom of the nav hits the top of the viewport
+      toggleActions: "play none none reverse", // Play on scroll down, reverse on scroll up
+      // markers: true, // Show markers for debugging (optional)
+    },
+  });
+}
+
+navAnimation();
+videoAnimations();
