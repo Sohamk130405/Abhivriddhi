@@ -436,8 +436,10 @@ video {
 }
 
 .faq-section {
-  background-image: url("assets/grid.jpg");
+  background-image: url("https://img.freepik.com/free-vector/abstract-perspective-grid-lines-black-background_1017-47349.jpg?w=826&t=st=1727621101~exp=1727621701~hmac=95c9c3600de1e7b093187d9d02e77c5fe3fe2ecff320d4d8733150391482f110");
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
