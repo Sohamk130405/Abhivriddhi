@@ -516,3 +516,53 @@ video {
 .faq-icon {
   font-size: 1.5rem;
 }
+
+footer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10vw;
+  width: 100%;
+  min-height: 50vh;
+}
+
+footer .part-1 {
+  display: flex;
+  padding: 40px 0;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #777777;
+}
+
+.part-1 .logo{
+   margin: 10px 0;
+}
+
+.part-1 .logo h1 {
+  font-size: 6vw;
+}
+
+.part-1 .logo h4{
+  color: #ffffff98;
+}
+
+.part-1 .social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.part-1 .social-links a {
+  text-decoration: none;
+  border: 1.2px solid #fff;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+}
+
+.part-1 .social-links a:hover {
+  color: #000;
+  background: #fff;
+  border-color: transparent;
+}
