@@ -436,7 +436,7 @@ video {
 }
 
 .faq-section {
-  background-image: url("/assets/grid.jpg");
+  background-image: url("assets/grid.jpg");
   background-position: center;
   display: flex;
   flex-direction: column;
