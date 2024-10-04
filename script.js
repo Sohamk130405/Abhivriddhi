@@ -102,5 +102,23 @@ function navAnimation() {
   });
 }
 
+function videoSound() {
+  let vol = document.querySelector(".video-container i");
+  let video = document.querySelector(".video-container video");
+  vol.addEventListener("click", () => {
+    console.log("clicked");
+    video.muted = !video.muted; // Toggle mute/unmute
+
+    if (video.muted) {
+      vol.classList.remove("ri-volume-up-fill");
+      vol.classList.add("ri-volume-mute-fill"); // Change to mute icon
+    } else {
+      vol.classList.remove("ri-volume-mute-fill");
+      vol.classList.add("ri-volume-up-fill"); // Change to volume icon
+    }
+  });
+}
+
 navAnimation();
 videoAnimations();
+videoSound();

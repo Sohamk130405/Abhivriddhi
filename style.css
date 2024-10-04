@@ -224,10 +224,19 @@ nav .logo:hover {
   margin: 5vw 0;
   border-radius: 20px;
   overflow: hidden;
+  position: relative;
 }
 video {
   width: 100%;
 }
+
+.video-container i{
+  position: absolute;
+  font-size: 40px;
+  bottom: 5%;
+  right: 5%;
+}
+
 
 .white-section {
   padding: 20px 10vw;
