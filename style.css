@@ -16,6 +16,7 @@ body {
   overflow: -moz-scrollbars-none; /* For Firefox */
   -ms-overflow-style: none; /* For Internet Explorer and Edge */
   scrollbar-width: none; /* For Firefox */
+  scroll-behavior: smooth;
 }
 
 nav {
@@ -34,6 +35,10 @@ nav {
 nav .logo {
   font-weight: 700;
   cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+nav .logo:hover {
+  color: #04bd3b;
 }
 
 .nav-links {
@@ -48,9 +53,32 @@ nav .logo {
   display: flex;
   gap: 20px;
   align-items: center;
-  background: #0da347;
+  background: #00d800;
   padding: 10px 20px;
   border-radius: 20px;
+}
+
+.nav-links a {
+  position: relative; /* Position relative to enable absolute positioning of the ::before element */
+  text-decoration: none; /* Remove default underline */
+}
+
+.nav-links a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px; /* Thickness of the bottom border */
+  background: #00d800; /* Color of the border */
+  transition: width 0.3s ease; /* Smooth width transition on hover */
+}
+
+.nav-links a:hover::before {
+  width: 100%; /* Expand the border to the full width of the link on hover */
+}
+.nav-icons i:hover {
+  color: #000;
 }
 
 .hero-section {
@@ -88,7 +116,8 @@ nav .logo {
 }
 
 .main-heading svg:hover {
-  transform: rotate(90deg);
+  transform: rotate(135deg);
+  scale: 0.8;
 }
 .highlight {
   color: #00ff00d8; /* Highlight color */
@@ -535,15 +564,16 @@ footer .part-1 {
   border-bottom: 1px solid #777777;
 }
 
-.part-1 .logo{
-   margin: 10px 0;
+.part-1 .logo {
+  margin: 10px 0;
 }
 
 .part-1 .logo h1 {
   font-size: 6vw;
+  font-family: monospace;
 }
 
-.part-1 .logo h4{
+.part-1 .logo h4 {
   color: #ffffff98;
 }
 
@@ -565,4 +595,77 @@ footer .part-1 {
   color: #000;
   background: #fff;
   border-color: transparent;
+}
+
+.part-2 {
+  padding: 4vw 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #666;
+}
+
+.part-2 .map {
+  height: 300px;
+  width: 50%;
+  overflow: hidden;
+}
+
+.map iframe {
+  height: 100%;
+  width: 80%;
+  border-radius: 10px;
+}
+
+.part-2 .info {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.part-2 .info .footer-links {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-size: 1.5vw;
+  opacity: 0.7;
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.footer-links a::before {
+  content: " ";
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  background: #fff;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}
+
+.part-2 .info .copyright {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.copyright h3 {
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+.copyright h5 {
+  opacity: 0.7;
 }
