@@ -82,6 +82,40 @@ nav .logo:hover {
   color: #000;
 }
 
+nav .menu {
+  display: none;
+  font-size: 2rem;
+}
+
+#full {
+  display: none;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  right: -100%;
+  backdrop-filter: blur(20px);
+  padding: 150px 60px;
+}
+
+#full h4 {
+  font-weight: 500;
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+#full i {
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  border-radius: 50%;
+  padding: 5px;
+  font-weight: 600;
+  font-size: 40px;
+  cursor: pointer;
+}
+
 /* Responsive for Small Mobile Screens */
 @media (max-width: 1024px) {
   nav {
@@ -108,10 +142,16 @@ nav .logo:hover {
   .nav-icons {
     font-size: 3vw;
   }
+  nav .menu {
+    display: block;
+  }
+  #full {
+    display: block;
+  }
 }
 
 .hero-section {
-  margin-top: 60px;
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -585,15 +625,18 @@ video {
 /* Contact Us */
 
 .contact-section {
-  background: url("assets/grid.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: #edf2f8;
   width: 100%;
-  min-height: 100vh;
   display: flex;
+  flex-direction: column;
+  gap: 2vw;
   justify-content: center;
   align-items: center;
-  background-color: #000;
+}
+
+.contact-section h1 {
+  color: #222;
+  font-size: 2rem;
 }
 
 .contact-section .container {
@@ -603,6 +646,7 @@ video {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 2vw;
 }
 
 .contact-box {
@@ -708,6 +752,166 @@ video {
 
   .contact-image img {
     max-width: 200px;
+  }
+}
+
+.testimonials a:link,
+.testimonials a:active,
+.testimonials a:visited,
+.testimonials a:hover {
+  color: #3f51b5;
+}
+
+.testimonials {
+  width: 100%;
+  min-height: 100vh;
+  background: #edf2f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+.testimonials h1 {
+  color: #222;
+  font-size: 2rem;
+}
+
+.innerdiv {
+  transform: scale(0.9);
+  margin: 1rem;
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-rows: repeat(2, 22rem);
+  grid-template-columns: repeat(4, 17rem);
+}
+.eachdiv {
+  padding: 1rem 2rem;
+  border-radius: 0.8rem;
+  box-shadow: 5px 5px 20px #6d6b6b6b;
+  color: white;
+}
+.div1 {
+  background: #733fc8;
+  grid-column: 1/3;
+  grid-row: 1/2;
+  background-image: url(https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/bg-pattern-quotation.svg);
+  background-repeat: no-repeat;
+  background-position-x: 25rem;
+}
+.div2 {
+  background: #49556b;
+  grid-column: 3/4;
+  grid-row: 1/2;
+}
+.div3 {
+  background: white;
+  grid-column: 4/5;
+  grid-row: 1/3;
+  color: black;
+}
+.div4 {
+  background: white;
+  grid-column: 1/2;
+  grid-row: 2/3;
+  color: black;
+}
+.div5 {
+  background: #18202d;
+  grid-column: 2/4;
+  grid-row: 2/3;
+}
+.userdetails {
+  display: flex;
+}
+.imgbox {
+  margin-right: 1rem;
+}
+.imgbox img {
+  border-radius: 50%;
+  width: 2rem;
+  border: 2px solid #cec5c5;
+}
+.detbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.detbox p {
+  margin: 0;
+}
+.detbox .name {
+  color: hsl(0, 0%, 81%);
+  font-size: 0.9rem;
+  margin-bottom: 0.1rem;
+  font-weight: 600;
+}
+.detbox .name.dark {
+  color: #49505a;
+}
+.detbox .designation {
+  color: hsl(0, 0%, 81%);
+  opacity: 50%;
+  font-size: 0.8rem;
+}
+.detbox .designation.dark {
+  color: #49505a;
+}
+.review h4 {
+  font-size: 1.4rem;
+  color: #f3deff;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+}
+.review.dark h4 {
+  color: #4b5258;
+}
+.review p {
+  font-size: 0.95rem;
+  color: #f3deff;
+  font-weight: 500;
+  opacity: 50%;
+  line-height: 1.5;
+}
+.review.dark p {
+  color: #0e0e0e;
+}
+.attribution {
+  font-size: 1rem;
+  line-height: 1.5;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  text-align: right;
+}
+.attribution a {
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 1000px) {
+  .innerdiv {
+    transform: scale(0.7);
+  }
+}
+@media only screen and (max-width: 800px) {
+  .innerdiv {
+    transform: scale(0.6);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .div1 {
+    background-position-x: 10rem;
+  }
+  .innerdiv {
+    display: flex;
+    flex-direction: column;
+    transform: scale(1);
+    margin: 2rem;
+    margin-bottom: 5rem;
+  }
+  .attribution {
+    position: relative;
   }
 }
 
@@ -921,6 +1125,11 @@ footer .part-1 {
 }
 
 @media (max-width: 768px) {
+  .part-1 .logo h1,
+  .part-1 .logo h4 {
+    padding-left: 18px;
+    text-align: left;
+  }
   .part-2 .map {
     height: 300px;
     width: 100%;
@@ -952,7 +1161,7 @@ footer .part-1 {
     align-items: center;
   }
   .share {
-    width: 4rem;
-    height: 4rem;
+    width: 3rem;
+    height: 3rem;
   }
 }

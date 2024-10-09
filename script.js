@@ -119,6 +119,37 @@ function videoSound() {
   });
 }
 
+function menu() {
+  var tl = gsap.timeline();
+  var open = document.querySelector("nav .menu i");
+  var close = document.querySelector("#full i");
+
+  // Timeline animation
+  tl.to("#full", {
+    right: 0,
+    duration: 0.3,
+  });
+  tl.from("#full h4", {
+    x: 150,
+    duration: 0.3,
+    stagger: 0.3,
+    opacity: 0,
+  });
+  tl.from("#full i", {
+    opacity: 0,
+  });
+  tl.pause();
+
+  open.addEventListener("click", function () {
+    tl.play();
+  });
+
+  close.addEventListener("click", function () {
+    tl.reverse();
+  });
+}
+
+menu();
 navAnimation();
 videoAnimations();
 videoSound();
