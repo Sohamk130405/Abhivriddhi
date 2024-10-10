@@ -18,15 +18,24 @@ body {
   background-color: #000000;
   box-sizing: border-box;
   position: relative;
-  overflow-x: hidden;
+
   overflow: -moz-scrollbars-none; /* For Firefox */
   -ms-overflow-style: none; /* For Internet Explorer and Edge */
   scrollbar-width: none; /* For Firefox */
   scroll-behavior: smooth;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
+main{
+    overflow-x: hidden;
+}
+
 nav {
   position: fixed;
+  top: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -341,7 +350,7 @@ video {
 }
 
 .white-section {
-  padding: 20px 10vw;
+  padding: 20px 10vw ;
   background-color: #fff;
 }
 
@@ -385,6 +394,7 @@ video {
   }
   .success-stories {
     grid-template-columns: 1fr; /* Stack columns on smaller screens */
+   
   }
 
   .left-content h1 {
@@ -400,7 +410,7 @@ video {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1vw; /* Increased gap between cards */
-  margin: 4vw 0;
+  margin-bottom: 10vw;
 }
 
 .stat-card {

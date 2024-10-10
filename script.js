@@ -1,4 +1,3 @@
-gsap.registerPlugin(ScrollTrigger);
 function videoAnimations() {
   // Select all video containers and videos
   const videoContainers = document.querySelectorAll(".event-video");
