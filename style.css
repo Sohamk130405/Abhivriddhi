@@ -1,3 +1,8 @@
+@font-face {
+  font-family: saman;
+  src: url(./SAMAN___.woff2);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -34,10 +39,12 @@ nav {
 }
 
 nav .logo {
-  font-weight: 700;
+  font-family: saman;
+  font-weight: 400;
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
+
 nav .logo:hover {
   color: #04bd3b;
 }
@@ -62,6 +69,7 @@ nav .logo:hover {
 .nav-links a {
   position: relative; /* Position relative to enable absolute positioning of the ::before element */
   text-decoration: none; /* Remove default underline */
+  overflow-y: hidden;
 }
 
 .nav-links a::before {
