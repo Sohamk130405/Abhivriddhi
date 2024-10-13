@@ -356,7 +356,7 @@ video {
   right: 5%;
 }
 
-.white-section {
+.about-section {
   padding: 20px 10vw;
   background-color: #fff;
 }
@@ -396,7 +396,7 @@ video {
 }
 
 @media (max-width: 768px) {
-  .white-section {
+  .about-section {
     padding: 20px 5vw;
   }
   .success-stories {
