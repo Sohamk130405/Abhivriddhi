@@ -18,7 +18,6 @@ body {
   background-color: #000000;
   box-sizing: border-box;
   position: relative;
-
   overflow: -moz-scrollbars-none; /* For Firefox */
   -ms-overflow-style: none; /* For Internet Explorer and Edge */
   scrollbar-width: none; /* For Firefox */
@@ -29,8 +28,8 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-main{
-    overflow-x: hidden;
+main {
+  overflow-x: hidden;
 }
 
 nav {
@@ -331,6 +330,14 @@ nav .menu {
   width: max-content;
 }
 
+@media (max-width: 480px) {
+  .slider img {
+    filter: grayscale(0);
+    height: 60px;
+    width: 60px;
+  }
+}
+
 .video-container {
   width: 100%;
   margin: 5vw 0;
@@ -350,7 +357,7 @@ video {
 }
 
 .white-section {
-  padding: 20px 10vw ;
+  padding: 20px 10vw;
   background-color: #fff;
 }
 
@@ -394,7 +401,6 @@ video {
   }
   .success-stories {
     grid-template-columns: 1fr; /* Stack columns on smaller screens */
-   
   }
 
   .left-content h1 {
@@ -1181,5 +1187,24 @@ footer .part-1 {
   .share {
     width: 3rem;
     height: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .part-2 .info h1 {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .footer-links a {
+    font-size: 1rem;
+  }
+
+  .copyright h3 {
+    font-size: 1rem;
+  }
+
+  .copyright h5 {
+    font-size: 0.7rem;
   }
 }
