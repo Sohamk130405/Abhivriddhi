@@ -355,22 +355,8 @@ function footerAnimation() {
       scrollTrigger: {
         trigger: ".footer",
         start: "top 90%",
-        toggleActions: "restart pause resume pause",
+        toggleActions: "play none none none",
       },
-    });
-
-    // Animate links in the footer
-    gsap.utils.toArray(".footer-links a").forEach((link, i) => {
-      gsap.from(link, {
-        opacity: 0,
-        x: i % 2 === 0 ? -20 : 20, // Alternate direction for staggered effect
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: link,
-          start: "top 90%",
-          toggleActions: "restart pause resume pause",
-        },
-      });
     });
   });
 }
