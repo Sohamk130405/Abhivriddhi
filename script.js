@@ -18,76 +18,6 @@ function videoAnimations() {
   });
 }
 
-function toggleFAQ(index) {
-  const faqs = document.querySelectorAll(".faq-item");
-
-  faqs.forEach((faq, i) => {
-    const answer = faq.querySelector(".faq-answer");
-    const icon = faq.querySelector(".faq-icon");
-
-    if (i === index) {
-      if (answer.style.display === "none" || answer.style.display === "") {
-        // Show answer with animation
-        gsap.to(answer, {
-          height: "auto",
-          opacity: 1,
-          duration: 0.5,
-          ease: "power2.out",
-        });
-        answer.style.display = "block";
-
-        // Rotate icon
-        gsap.to(icon, {
-          rotate: 180,
-          duration: 0.3,
-          ease: "power2.out",
-        });
-        icon.classList.remove("ri-add-line");
-        icon.classList.add("ri-subtract-line");
-      } else {
-        // Hide answer with animation
-        gsap.to(answer, {
-          height: 0,
-          opacity: 0,
-          duration: 0.4,
-          ease: "power2.in",
-          onComplete: () => {
-            answer.style.display = "none";
-          },
-        });
-
-        // Reset icon
-        gsap.to(icon, {
-          rotate: 0,
-          duration: 0.3,
-          ease: "power2.out",
-        });
-        icon.classList.remove("ri-subtract-line");
-        icon.classList.add("ri-add-line");
-      }
-    } else {
-      // Close all other FAQs
-      const otherAnswer = faq.querySelector(".faq-answer");
-      const otherIcon = faq.querySelector(".faq-icon");
-
-      gsap.to(otherAnswer, {
-        height: 0,
-        opacity: 0,
-        duration: 0.4,
-        ease: "power2.in",
-        onComplete: () => {
-          otherAnswer.style.display = "none";
-        },
-      });
-
-      // Reset icon for other FAQs
-      gsap.to(otherIcon, { rotate: 0, duration: 0.3, ease: "power2.out" });
-      otherIcon.classList.remove("ri-subtract-line");
-      otherIcon.classList.add("ri-add-line");
-    }
-  });
-}
-
 function navAnimation() {
   var tl = gsap.timeline();
   tl.from("nav", {
@@ -186,7 +116,7 @@ function heroSectionAnimations() {
       ".main-heading",
       {
         opacity: 0,
-        x: 100,
+        x: -100,
         duration: 1,
         ease: "power2.out",
       },
@@ -223,13 +153,12 @@ function heroSectionAnimations() {
 }
 
 function whiteSectionAnimation() {
- 
   // Animate the statistic cards with a stagger effect
   gsap.from(".stat-card", {
     scrollTrigger: {
       trigger: ".statistics-grid",
       start: "top 90%",
-      toggleActions: "play reverse play reverse",
+      toggleActions: "play none none none",
     },
     opacity: 0,
     y: 50,
@@ -273,7 +202,7 @@ function eventSectionAnimation() {
       scrollTrigger: {
         trigger: ".events-section",
         start: "top 80%", // When to trigger the animation
-        toggleActions: "play reverse play reverse", // Play when scroll hits, no reverse
+        toggleActions: "play none none none", // Play when scroll hits, no reverse
       },
     });
 
@@ -287,7 +216,7 @@ function eventSectionAnimation() {
         scrollTrigger: {
           trigger: event,
           start: "top 80%",
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none none",
         },
       });
     });
@@ -312,7 +241,7 @@ function eventSectionAnimation() {
         scrollTrigger: {
           trigger: video,
           start: "top 80%",
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none none",
         },
       });
     });
@@ -330,7 +259,7 @@ function testimonialSectionAnimation() {
         scrollTrigger: {
           trigger: testimonial,
           start: "top 80%", // Trigger animation when element is in the viewport
-          toggleActions: "play reverse play reverse", // Play animation and reverse on scroll back
+          toggleActions: "play none none none", // Play animation and reverse on scroll back
         },
       });
     });
@@ -354,7 +283,7 @@ function testimonialSectionAnimation() {
       scrollTrigger: {
         trigger: ".testimonials h1",
         start: "top 90%", // Start when the heading is in view
-        toggleActions: "play reverse play reverse", // Reverse the animation on scroll back
+        toggleActions: "play none none none", // Reverse the animation on scroll back
       },
     });
   });
@@ -372,7 +301,7 @@ function contactSectionAnimation() {
       scrollTrigger: {
         trigger: ".contact-section",
         start: "top 85%", // Trigger when section is in view
-        toggleActions: "play reverse play reverse",
+        toggleActions: "play none none none",
       },
     });
     gsap.from(".contact-image", {
@@ -417,41 +346,30 @@ function contactSectionAnimation() {
 function footerAnimation() {
   document.addEventListener("DOMContentLoaded", function () {
     // Social media icon hover animation
-    const socialIcons = document.querySelectorAll(".share svg");
-    socialIcons.forEach((icon) => {
-      icon.addEventListener("mouseenter", () => {
-        gsap.to(icon, {
-          scale: 1.3,
-          rotate: 15,
-          duration: 0.4,
-          ease: "power2.out",
-        });
-      });
-      icon.addEventListener("mouseleave", () => {
-        gsap.to(icon, {
-          scale: 1,
-          rotate: 0,
-          duration: 0.4,
-          ease: "power2.out",
-        });
-      });
+
+    // Footer text animation on scroll
+    gsap.from(".footer-text", {
+      opacity: 0,
+      y: 30,
+      duration: 1,
+      scrollTrigger: {
+        trigger: ".footer",
+        start: "top 90%",
+        toggleActions: "restart pause resume pause",
+      },
     });
 
-    // Footer sections scroll-in animation with stagger and easing
-    const footerParts = document.querySelectorAll(".part-1, .part-2");
-
-    footerParts.forEach((part, index) => {
-      gsap.from(part, {
+    // Animate links in the footer
+    gsap.utils.toArray(".footer-links a").forEach((link, i) => {
+      gsap.from(link, {
         opacity: 0,
-        y: 40,
-        duration: 1.2,
-        ease: "power3.out",
+        x: i % 2 === 0 ? -20 : 20, // Alternate direction for staggered effect
+        duration: 0.8,
         scrollTrigger: {
-          trigger: part,
-          start: "top 85%",
-          toggleActions: "play reverse play reverse",
+          trigger: link,
+          start: "top 90%",
+          toggleActions: "restart pause resume pause",
         },
-        delay: index * 0.2, // Adding staggered delay for each part
       });
     });
   });
