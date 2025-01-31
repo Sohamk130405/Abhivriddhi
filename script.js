@@ -49,21 +49,36 @@ function navAnimation() {
 }
 
 function videoSound() {
-  let vol = document.querySelector(".video-container i");
-  let video = document.querySelector(".video-container video");
+  const vol = document.querySelector(".video-container i");
+  const video = document.querySelector(".video-container video");
+  
+  // Volume icon click handler
   vol.addEventListener("click", () => {
-    console.log("clicked");
-    video.muted = !video.muted; // Toggle mute/unmute
-
+    video.muted = !video.muted;
+    
     if (video.muted) {
       vol.classList.remove("ri-volume-up-fill");
-      vol.classList.add("ri-volume-mute-fill"); // Change to mute icon
+      vol.classList.add("ri-volume-mute-fill");
     } else {
       vol.classList.remove("ri-volume-mute-fill");
-      vol.classList.add("ri-volume-up-fill"); // Change to volume icon
+      vol.classList.add("ri-volume-up-fill");
     }
   });
+
+  // Add hover functionality
+  const container = document.querySelector(".video-container");
+  
+  container.addEventListener("mouseenter", () => {
+    video.play();
+  });
+
+  container.addEventListener("mouseleave", () => {
+    video.pause();
+  });
 }
+
+// Initialize when DOM is loaded
+document.addEventListener("DOMContentLoaded", videoSound);
 
 function menu() {
   var tl = gsap.timeline();
@@ -294,12 +309,12 @@ function contactSectionAnimation() {
     // Fade-in effect for the contact section as it scrolls into view
     // Animation for the contact form and image
 
-    gsap.from(".contact-section .container", {
+    gsap.from(".contact-sectionn", {
       opacity: 0,
       y: 50, // Slide up the section as it fades in
       duration: 1.2,
       scrollTrigger: {
-        trigger: ".contact-section",
+        trigger: ".contact-sectionn",
         start: "top 85%", // Trigger when section is in view
         toggleActions: "play none none none",
       },
