@@ -156,15 +156,6 @@ function heroSectionAnimations() {
     duration: 1.5,
     ease: "elastic.out(1, 0.75)",
   });
-
-  // Continuous text animation for the subheading
-  gsap.to(".subheading", {
-    y: -10,
-    repeat: -1,
-    yoyo: true,
-    duration: 1,
-    ease: "sine.inOut",
-  });
 }
 
 function whiteSectionAnimation() {
