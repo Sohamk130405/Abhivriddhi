@@ -51,11 +51,11 @@ function navAnimation() {
 function videoSound() {
   const vol = document.querySelector(".video-container i");
   const video = document.querySelector(".video-container video");
-  
+
   // Volume icon click handler
   vol.addEventListener("click", () => {
     video.muted = !video.muted;
-    
+
     if (video.muted) {
       vol.classList.remove("ri-volume-up-fill");
       vol.classList.add("ri-volume-mute-fill");
@@ -67,13 +67,16 @@ function videoSound() {
 
   // Add hover functionality
   const container = document.querySelector(".video-container");
-  
+
   container.addEventListener("mouseenter", () => {
     video.play();
+    video.removeAttribute("poster");
   });
 
   container.addEventListener("mouseleave", () => {
     video.pause();
+    video.setAttribute("poster", "assets/edge.png");
+    video.load(); 
   });
 }
 
