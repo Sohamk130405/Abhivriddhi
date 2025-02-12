@@ -48,41 +48,6 @@ function navAnimation() {
   });
 }
 
-function videoSound() {
-  const vol = document.querySelector(".video-container i");
-  const video = document.querySelector(".video-container video");
-
-  // Volume icon click handler
-  vol.addEventListener("click", () => {
-    video.muted = !video.muted;
-
-    if (video.muted) {
-      vol.classList.remove("ri-volume-up-fill");
-      vol.classList.add("ri-volume-mute-fill");
-    } else {
-      vol.classList.remove("ri-volume-mute-fill");
-      vol.classList.add("ri-volume-up-fill");
-    }
-  });
-
-  // Add hover functionality
-  const container = document.querySelector(".video-container");
-
-  container.addEventListener("mouseenter", () => {
-    video.play();
-    video.removeAttribute("poster");
-  });
-
-  container.addEventListener("mouseleave", () => {
-    video.pause();
-    video.setAttribute("poster", "assets/edge.png");
-    video.load(); 
-  });
-}
-
-// Initialize when DOM is loaded
-document.addEventListener("DOMContentLoaded", videoSound);
-
 function menu() {
   var tl = gsap.timeline();
   var open = document.querySelector("nav .menu i");
@@ -153,7 +118,7 @@ function heroSectionAnimations() {
     ); // Overlap with the main-heading animation
 
   // Video container animation
-  gsap.from(".video-container", {
+  gsap.from(".hero-img-container", {
     opacity: 0,
     scale: 0.2,
     duration: 1.5,
@@ -373,7 +338,6 @@ function footerAnimation() {
 menu();
 navAnimation();
 videoAnimations();
-videoSound();
 heroSectionAnimations();
 whiteSectionAnimation();
 eventSectionAnimation();
