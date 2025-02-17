@@ -132,6 +132,10 @@ nav .menu {
   cursor: pointer;
 }
 
+.menu-links {
+  cursor: pointer;
+}
+
 /* Responsive for Small Mobile Screens */
 @media (max-width: 786px) {
   nav {

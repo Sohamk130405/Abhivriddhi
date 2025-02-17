@@ -52,7 +52,7 @@ function menu() {
   var tl = gsap.timeline();
   var open = document.querySelector("nav .menu i");
   var close = document.querySelector("#full i");
-
+  var elements = document.querySelectorAll(".menu-links");
   // Timeline animation
   tl.to("#full", {
     right: 0,
@@ -69,6 +69,11 @@ function menu() {
   });
   tl.pause();
 
+  elements.forEach((ele) => {
+    ele.addEventListener("click", function () {
+      tl.reverse();
+    });
+  });
   open.addEventListener("click", function () {
     tl.play();
   });
