@@ -143,7 +143,9 @@ function whiteSectionAnimation() {
 
   // Animate the numbers inside the stat cards
   gsap.utils.toArray(".stat-card h2").forEach(function (el) {
-    let endValue = el.textContent.replace(/[^0-9.]/g, ""); // Remove non-numeric characters
+    let endValue = el.textContent.replace(/[^0-9.]/g, ""); // Extract the numeric value
+    let endSymbol = el.textContent.replace(/[0-9.]/g, ""); // Extract the non-numeric characters
+
     gsap.fromTo(
       el,
       { textContent: 0 },
@@ -158,7 +160,8 @@ function whiteSectionAnimation() {
         ease: "power2.out",
         snap: { textContent: 1 }, // Snap to the nearest whole number
         onUpdate: function () {
-          el.textContent = Math.floor(el.textContent).toLocaleString(); // Format the number with commas
+          el.textContent =
+            Math.floor(el.textContent).toLocaleString() + endSymbol; // Add the symbol back
         },
       }
     );
@@ -334,6 +337,27 @@ function footerAnimation() {
     });
   });
 }
+
+// Get the form and button elements
+const form = document.querySelector(".contact-form form");
+const sendButton = document.querySelector(".floating-send-button");
+
+// Add event listener to the button
+sendButton.addEventListener("click", (e) => {
+  e.preventDefault(); // Prevent default button behavior
+  const name = form.querySelector('input[name="Name"]').value.trim();
+  const email = form.querySelector('input[name="Email"]').value.trim();
+  const message = form.querySelector('textarea[name="Message"]').value.trim();
+
+  // Check if any field is empty
+  if (!name || !email || !message) {
+    alert("Please fill out all fields before sending.");
+    return;
+  }
+  // Submit the form
+  form.submit();
+  form.reset();
+});
 
 menu();
 navAnimation();
