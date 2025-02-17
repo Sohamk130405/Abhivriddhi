@@ -7,7 +7,14 @@
         },
         {
             "source": "/:match*",
-            "destination": "https://abhivriddhi.vercel.app/:match*"
+            "destination": "https://abhivriddhi.vercel.app/:match*",
+            "has": [
+                {
+                    "type": "header",
+                    "key": "host",
+                    "value": "abhivriddhi.vercel.app"
+                }
+            ]
         }
     ]
 }
