@@ -1,5 +1,5 @@
 {
-    "redirects": [
+    "rewrites": [
         {
             "source": "/edge/:path*",
             "destination": "https://edge-coral.vercel.app/:path*"
