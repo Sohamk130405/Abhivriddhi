@@ -3,10 +3,6 @@
         {
             "source": "/edge/:match(.*)",
             "destination": "https://edge-coral.vercel.app/:match"
-        },
-        {
-            "source": "/:match(.*)",
-            "destination": "https://abhivriddhi.vercel.app/:match"
         }
     ]
 }
