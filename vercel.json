@@ -2,19 +2,12 @@
     "version": 2,
     "rewrites": [
         {
-            "source": "/edge/:match(.*)",
+            "source": "/edge/:match*",
             "destination": "https://edge-coral.vercel.app/:match*"
         },
         {
-            "source": "/:match(.*)",
-            "destination": "https://abhivriddhi.vercel.app/:match*",
-            "has": [
-                {
-                    "type": "header",
-                    "key": "host",
-                    "value": "abhivriddhi.vercel.app"
-                }
-            ]
+            "source": "/((?!edge/).*)",
+            "destination": "https://abhivriddhi.vercel.app/$1"
         }
     ]
 }
