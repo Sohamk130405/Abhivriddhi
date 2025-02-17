@@ -1,8 +1,8 @@
 {
     "rewrites": [
         {
-            "source": "/edge/:match(.*)",
-            "destination": "https://edge-coral.vercel.app/:match"
+            "source": "/edge/:path*",
+            "destination": "https://edge-coral.vercel.app/:path*"
         }
     ]
 }
