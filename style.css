@@ -634,6 +634,19 @@ video {
   background-color: #3d49d1;
 }
 
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.image-container img {
+  width: 340px;
+  height: 260px;
+  border-radius: 10px;
+  margin-left: 5px;
+}
+
 .event .right-section {
   border-top: 1px solid grey;
   width: 60%;
